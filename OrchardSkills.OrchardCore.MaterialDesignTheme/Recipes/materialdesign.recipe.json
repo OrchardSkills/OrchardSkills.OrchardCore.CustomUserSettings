@@ -48,6 +48,7 @@
         "OrchardCore.Themes",
         "OrchardCore.Users",
         "OrchardCore.Users.ChangeEmail",
+        "OrchardCore.Users.CustomUserSettings",
         "OrchardCore.Users.Registration",
         "OrchardCore.Users.ResetPassword",
 
@@ -112,6 +113,28 @@
     {
       "name": "ContentDefinition",
       "ContentTypes": [
+        {
+          "Name": "UserProfile",
+          "DisplayName": "Profile",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Versionable": true,
+              "Stereotype": "CustomUserSettings"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "UserProfile",
+              "Name": "UserProfile",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
         {
           "Name": "Article",
           "DisplayName": "Article",
@@ -383,7 +406,7 @@
                 },
                 "ListPartSettings": {
                   "PageSize": 10,
-                  "ContainedContentTypes": ["Subscriber"]
+                  "ContainedContentTypes": [ "Subscriber" ]
                 }
               }
             }
@@ -492,7 +515,7 @@
                 },
                 "ListPartSettings": {
                   "PageSize": 10,
-                  "ContainedContentTypes": ["Message"]
+                  "ContainedContentTypes": [ "Message" ]
                 }
               }
             }
@@ -570,7 +593,7 @@
                 },
                 "ListPartSettings": {
                   "PageSize": 10,
-                  "ContainedContentTypes": ["BlogPost"]
+                  "ContainedContentTypes": [ "BlogPost" ]
                 }
               }
             }
@@ -1005,6 +1028,58 @@
         }
       ],
       "ContentParts": [
+        {
+          "Name": "UserProfile",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "FirstName",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "First Name",
+                  "Position": "0"
+                },
+                "TextFieldSettings": {
+                  "Hint": "Enter first name",
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "LastName",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Last Name",
+                  "Position": "1"
+                },
+                "TextFieldSettings": {
+                  "Hint": "Enter last name",
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Mobile",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Mobile",
+                  "Editor": "Tel",
+                  "Position": "2"
+                },
+                "TextFieldSettings": {
+                  "Hint": "Enter mobile number",
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
+        },
         {
           "Name": "Blog",
           "Settings": {},
