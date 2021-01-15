@@ -8,7 +8,7 @@
         {% a display_for:Model.ContentItem %}
         {% assign imagePath = Model.ContentItem.Content.BlogPost.Image.Paths.first %}
         {% if imagePath != nil %}
-        <img src="{{ imagePath | asset_url }}" alt="Blog Image" width="100%" class="img-fluid">
+        <img src="{{ imagePath | asset_url }}" alt="Blog Image" width="100%" class="img-fluid"/>
         {% endif %}
 
         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
@@ -46,12 +46,17 @@
 
 
         </div>
-        {% assign user = User | user_id | users_by_id %}
-        <div class="col-6 text-right">
+      {% assign user = User | user_id | users_by_id %}
+      {% assign avatarPath = user.Properties.UserProfile.UserProfile.Avatar.Paths.first %}
+      <div class="col-6 text-right">
             <p>
-                {% assign format = "MMMM dd, yyyy" | t %}
-                {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
-                {{ "Posted by" | t }} <a href="#"> <strong>{{ Model.ContentItem.Owner }}</strong> </a> ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
+              {% assign format = "MMMM dd, yyyy" | t %}
+              {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
+              {{ "Posted by" | t }}
+              {% if avatarPath != nil %}
+              <img src="{{ avatarPath | asset_url }}" alt="Avatar Image" width="22" class="img-fluid"/>
+              {% endif %}
+              <a href="#"> <strong>{{ Model.ContentItem.Owner }}</strong> </a> ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
                 {{ "on {0}" | t: dateTime | raw }}
             </p>
 

@@ -9,6 +9,7 @@
 <!-- Set your background image for this header on the line below. -->
 {% assign imagePath = Model.ContentItem.Content.BlogPost.Image.Paths.first %}
 {% assign user = User | user_id | users_by_id %}
+{% assign avatarPath = user.Properties.UserProfile.UserProfile.Avatar.Paths.first %}
 {% if imagePath == nil %}
 <header class="rellax masthead" data-rellax-speed="-7"
     style="background-image: url('{{ "~/MaterialDesignTheme/img/post-bg.jpg" | href }}')">
@@ -28,8 +29,12 @@
                             {% assign format = "MMMM dd, yyyy" | t %}
                             {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
                             {{ "Posted by" | t }} <a style="color: white !important"
-                                href="#">{{ Model.ContentItem.Owner }}</a> ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
-                            {{ "on {0}" | t: dateTime | raw }}
+                                href="#">{{ Model.ContentItem.Owner }}</a>
+                          {% if avatarPath != nil %}
+                          <img src="{{ avatarPath | asset_url }}" alt="Avatar Image" width="22" class="img-fluid"/>
+                          {% endif %}
+                          ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
+                          {{ "on {0}" | t: dateTime | raw }}
                         </span>
                     </div>
                 </div>

@@ -1077,6 +1077,16 @@
                 },
                 "ContentIndexSettings": {}
               }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Avatar",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Avatar",
+                  "Position": "3"
+                }
+              }
             }
           ]
         },
