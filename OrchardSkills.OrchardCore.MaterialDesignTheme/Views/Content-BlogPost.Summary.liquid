@@ -46,12 +46,12 @@
 
 
         </div>
-
+        {% assign user = User | user_id | users_by_id %}
         <div class="col-6 text-right">
             <p>
                 {% assign format = "MMMM dd, yyyy" | t %}
                 {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
-                {{ "Posted by" | t }} <a href="#"> <strong>{{ Model.ContentItem.Owner }}</strong> </a>
+                {{ "Posted by" | t }} <a href="#"> <strong>{{ Model.ContentItem.Owner }}</strong> </a> ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
                 {{ "on {0}" | t: dateTime | raw }}
             </p>
 
