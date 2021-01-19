@@ -1746,7 +1746,7 @@
           "DisplayText": "Getting Started with Orchard Core",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters('AdminUsername')]",
+          "Owner": "[js: parameters('AdminUserId')]",
           "Author": "[js: parameters('AdminUsername')]",
           "TitlePart": {
             "Title": "Getting Started with Orchard Core"
@@ -1766,7 +1766,7 @@
               "Text": "An Example of Creating a Orchard Core Content Management System Application using NuGet packages with Visual Studio"
             },
             "Image": {
-              "Paths": ["getting-started.png"]
+              "Paths": [ "getting-started.png" ]
             },
             "Tags": {
               "TermContentItemIds": [
@@ -1774,7 +1774,7 @@
                 "[js: variables('getstartedTagContentItemId')]"
               ],
               "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]",
-              "TagNames": ["VisualStudio", "GetStarted"]
+              "TagNames": [ "VisualStudio", "GetStarted" ]
             },
             "Category": {
               "TermContentItemIds": [
@@ -1790,7 +1790,7 @@
           "DisplayText": "Orchard Core on Linux Using VSCode",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters('AdminUsername')]",
+          "Owner": "[js: parameters('AdminUserId')]",
           "Author": "[js: parameters('AdminUsername')]",
           "TitlePart": {
             "Title": "Orchard Core on Linux Using VSCode"
@@ -1807,10 +1807,10 @@
               "Text": "Orchard Core on Linux Using VSCode"
             },
             "Image": {
-              "Paths": ["linux-vscode.png"]
+              "Paths": [ "linux-vscode.png" ]
             },
             "Tags": {
-              "TagNames": ["VSCode", "GetStarted", "Linux"],
+              "TagNames": [ "VSCode", "GetStarted", "Linux" ],
               "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]",
               "TermContentItemIds": [
                 "[js: variables('vscodeTagContentItemId')]",

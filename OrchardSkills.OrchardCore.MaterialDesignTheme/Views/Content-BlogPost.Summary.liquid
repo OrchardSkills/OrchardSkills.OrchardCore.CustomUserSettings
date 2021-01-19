@@ -46,7 +46,7 @@
 
 
         </div>
-      {% assign user = User | user_id | users_by_id %}
+      {% assign user = Model.ContentItem.Owner | users_by_id %}
       {% assign avatarPath = user.Properties.UserProfile.UserProfile.Avatar.Paths.first %}
       <div class="col-6 text-right">
             <p>
@@ -56,7 +56,7 @@
               {% if avatarPath != nil %}
               <img src="{{ avatarPath | asset_url }}" alt="Avatar Image" width="22" class="img-fluid"/>
               {% endif %}
-              <a href="#"> <strong>{{ Model.ContentItem.Owner }}</strong> </a> ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
+              <a href="#"> <strong>{{ Model.ContentItem.Author }}</strong> </a> ({{ user.Properties.UserProfile.UserProfile.FirstName.Text }} {{ user.Properties.UserProfile.UserProfile.LastName.Text }})
                 {{ "on {0}" | t: dateTime | raw }}
             </p>
 
